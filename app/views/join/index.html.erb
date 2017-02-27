@@ -1,17 +1,19 @@
 <h1>Join</h1>
 
-<%= form_tag('/user/index') do %>
+<%= form_tag('/join') do %>
   <p>
     <%= label_tag :id %><br>
-    <%= text_field_tag [:id] %>
+    <%= text_field_tag [:ids] %>
   </p>
  
   <p>
     <%= label_tag :pw %><br>
-    <%= text_area_tag [:pw] %>
+    <%= text_area_tag [:pwd] %>
   </p>
  
   <p>
     <%= submit_tag %>
   </p>
 <% end %>
+
+<%= link_to 'Login', user_index_path %>

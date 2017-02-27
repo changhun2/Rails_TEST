@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
-  post 'user/index'
+#  post 'user/index'
 
   root 'join#index'
+
+  resources :join
+
+  resources :user do
+    post :login
+  end
 
   resources :articles do
     resources :comments
