@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
-#  post 'user/index'
 
-  root 'join#index'
+  root 'user#index'
 
-  resources :join
+  resources :user
 
-  resources :user do
+  resources :login do
     post :login
   end
 

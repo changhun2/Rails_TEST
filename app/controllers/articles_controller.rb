@@ -20,8 +20,13 @@ class ArticlesController < ApplicationController
   def create
    @article = Article.new(article_params)
    
-   @join = Join.find_by_ids(session[:current_user_id])
-   @article.join_id = @join.id
+   @user = User.find_by_name(session[:current_user_id])
+   puts(@user.id)
+   puts(@article.title)
+   puts(@article.text)
+   puts(@article)
+   puts(@article.user_id)
+   @article.user_id = @user.id
    
    if @article.save
      redirect_to @article

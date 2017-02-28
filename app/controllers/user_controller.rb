@@ -2,15 +2,18 @@ class UserController < ApplicationController
   def index
   end
   
-  def login
-    @Join = Join.find_by_ids_and_pwd(params[:ids],params[:pwd])
-    
-    if @Join
-      session[:current_user_id] = params[:ids]
-      puts(session[:current_user_id])
-      redirect_to articles_path
+  def create
+    @user = User.new(user_params)
+   
+    if @user.save
+      redirect_to login_index_path
     else
       render 'index'
     end
   end
+  
+  private
+    def user_params
+      params.permit(:name, :pwd)
+    end
 end
