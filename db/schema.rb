@@ -22,6 +22,12 @@ ActiveRecord::Schema.define(version: 20170227135040) do
   end
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "commenter"
+    t.text     "body",       limit: 65535
+    t.integer  "article_id"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.index ["article_id"], name: "index_comments_on_article_id", using: :btree
   end
 
   create_table "joins", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -32,4 +38,5 @@ ActiveRecord::Schema.define(version: 20170227135040) do
   end
 
   add_foreign_key "articles", "joins"
+  add_foreign_key "comments", "articles"
 end
