@@ -1,0 +1,19 @@
+<h1>User</h1>
+
+<%= form_tag('/users') do %>
+  <p>
+    <%= label_tag :name %><br>
+    <%= text_field_tag [:name] %>
+  </p>
+ 
+  <p>
+    <%= label_tag :pw %><br>
+    <%= text_area_tag [:pwd] %>
+  </p>
+ 
+  <p>
+    <%= submit_tag %>
+  </p>
+<% end %>
+
+<%= link_to 'Login', logins_path %>
