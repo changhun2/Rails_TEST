@@ -1,4 +1,4 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
   def index
   end
   
@@ -6,7 +6,7 @@ class UserController < ApplicationController
     @user = User.new(user_params)
    
     if @user.save
-      redirect_to login_index_path
+      redirect_to logins_path
     else
       render 'index'
     end

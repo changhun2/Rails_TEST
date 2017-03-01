@@ -1,8 +1,8 @@
-class LoginController < ApplicationController
+class LoginsController < ApplicationController
   def index
   end
   
-  def login
+  def create
     @user = User.find_by_name_and_pwd(params[:name], params[:pwd])
     
     if @user
