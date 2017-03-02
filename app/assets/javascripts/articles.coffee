@@ -3,11 +3,10 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
-  $("#article_title").on "keydown", (e) ->
+  $("#article_title").on "keyup", (e) ->
+    total_article_title_length = 10
+
     now_article_title_count = $("#article_title_count").text()
-    
-    if now_article_title_count > 0 && e.key != "Backspace"
-      $("#article_title_count").text(now_article_title_count-1)
-      
-    if e.key == "Backspace" && now_article_title_count < 10
-      $("#article_title_count").text(parseInt(now_article_title_count)+1)
+    input_article_title_count = $(this).val().length
+
+    $("#article_title_count").text(parseInt(total_article_title_length)-parseInt(input_article_title_count))
